@@ -1,0 +1,59 @@
+cff-version: 1.2.0
+title: "PReMISE: Policy Rubrics as Measurement Specifications for LLM Judges"
+message: "If you use this software, please cite it using these metadata."
+type: software
+authors:
+  - given-names: Swastik
+    family-names: Roy
+  - given-names: Rajkumar
+    family-names: Pujari
+  - given-names: Tharindu
+    family-names: Kumarage
+  - given-names: Charith
+    family-names: Peris
+  - given-names: Rahul
+    family-names: Gupta
+  - given-names: Anna
+    family-names: Rumshisky
+  - given-names: Pradeep
+    family-names: Natarajan
+  - given-names: Venkatesh
+    family-names: Saligrama
+license: CC-BY-NC-4.0
+version: "0.1.0"
+repository-code: "https://github.com/amazon-science/premise-engine"
+abstract: >-
+  Reference implementation for PReMISE: discovering policy rubrics from
+  pairwise preferences, auditing rubric-conditioned judges along four axes,
+  and applying preference-fit or reliability-constrained repairs.
+keywords:
+  - llm-as-a-judge
+  - rubric discovery
+  - preference learning
+  - evaluation
+preferred-citation:
+  type: article
+  title: "PReMISE: Policy Rubrics as Measurement Specifications for LLM Judges"
+  authors:
+    - given-names: Swastik
+      family-names: Roy
+    - given-names: Rajkumar
+      family-names: Pujari
+    - given-names: Tharindu
+      family-names: Kumarage
+    - given-names: Charith
+      family-names: Peris
+    - given-names: Rahul
+      family-names: Gupta
+    - given-names: Anna
+      family-names: Rumshisky
+    - given-names: Pradeep
+      family-names: Natarajan
+    - given-names: Venkatesh
+      family-names: Saligrama
+  year: 2026
+  journal: arXiv
+  identifiers:
+    - type: other
+      value: "arXiv:2605.30803"
+  url: "https://arxiv.org/abs/2605.30803"

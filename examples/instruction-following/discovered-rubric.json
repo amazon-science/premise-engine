@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "category": "instruction-following",
+  "rubrics": [
+    {
+      "id": "format_instruction_compliance",
+      "description": "The response should precisely follow all explicit formatting and structural instructions provided in the user's prompt.",
+      "source_count": 5
+    },
+    {
+      "id": "conciseness_minimal_verbosity",
+      "description": "The response should convey the required information using the minimum number of words, avoiding any unnecessary text that does not add informational value.",
+      "source_count": 5
+    },
+    {
+      "id": "output_adherence",
+      "description": "The response should output exactly the requested content and format without any additional text, explanation, or commentary.",
+      "source_count": 4
+    },
+    {
+      "id": "abstracted__politeness_convention_inclusion",
+      "description": "The response should include conventional politeness elements appropriate to the context, such as gratitude expressions, polite requests, or assumption declarations in uncertain situations.",
+      "source_count": 3
+    },
+    {
+      "id": "response_directness",
+      "description": "The response should present the requested information immediately as its primary content, without preamble, conversational framing, or unsolicited additional information.",
+      "source_count": 3
+    }
+  ]
+}

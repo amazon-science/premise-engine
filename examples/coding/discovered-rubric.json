@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "category": "coding",
+  "rubrics": [
+    {
+      "id": "abstracted__match_specified_operation",
+      "description": "The response should implement the precise computational operation or transformation specified, including correct handling of data types, mathematical behavior, or command output.",
+      "source_count": 4
+    },
+    {
+      "id": "abstracted__prevent_insecure_practices",
+      "description": "The response should avoid known insecure or unsafe practices in code implementation, such as hardcoded secrets, mutable defaults, or unsafe command construction.",
+      "source_count": 3
+    },
+    {
+      "id": "explicit_operation_safeguarding",
+      "description": "The response should proactively check for and handle potential errors or invalid conditions before performing operations that could fail.",
+      "source_count": 3
+    },
+    {
+      "id": "input_parameter_immutability",
+      "description": "The function should not mutate any of its input parameters, preserving their original state and values.",
+      "source_count": 2
+    },
+    {
+      "id": "abstracted__handle_edge_cases",
+      "description": "The response should correctly handle edge cases or boundary conditions implied by the problem domain, including empty inputs, missing resources, or extreme values.",
+      "source_count": 2
+    }
+  ]
+}

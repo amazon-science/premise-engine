@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "category": "creative-writing",
+  "rubrics": [
+    {
+      "id": "concrete_sensory_description",
+      "description": "The response should describe the scene using specific, tangible details that can be perceived through sight, sound, touch, taste, or smell, rather than abstract or generic labels.",
+      "source_count": 5
+    },
+    {
+      "id": "prohibited_term_avoidance",
+      "description": "The response should not contain any words or elements that were explicitly prohibited by the user's instructions.",
+      "source_count": 4
+    },
+    {
+      "id": "abstracted__narrative_coherence",
+      "description": "The response should maintain logical and emotional consistency with the established narrative context, ensuring that reveals, perspectives, and details align with prior elements.",
+      "source_count": 3
+    },
+    {
+      "id": "abstracted__indirect_implementation",
+      "description": "The response should convey information or attributes indirectly through implications, actions, or contextual details rather than explicit statements.",
+      "source_count": 3
+    },
+    {
+      "id": "demonstrate_through_concrete_representation",
+      "description": "The response should convey abstract qualities like emotion or character through specific, observable actions, dialogue, or imagery rather than stating them directly.",
+      "source_count": 3
+    }
+  ]
+}

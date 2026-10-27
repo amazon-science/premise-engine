@@ -1,0 +1,111 @@
+{
+  "$schema": "./config.schema.json",
+  "schema_version": "1.0",
+  "provider": "bedrock",
+  "providers": {
+    "bedrock": {
+      "models": {
+        "default": "deepseek.v3-v1:0",
+        "judge": "deepseek.v3-v1:0",
+        "attacker": "moonshot.kimi-k2-thinking",
+        "verifier": "mistral.mistral-large-3-675b-instruct",
+        "embedding": "amazon.titan-embed-text-v2:0",
+        "reasoning": "us.deepseek.r1-v1:0",
+        "genericity": "qwen.qwen3-235b-a22b-2507-v1:0",
+        "atomic_rewrite": "qwen.qwen3-235b-a22b-2507-v1:0",
+        "open_source_judge": "openai.gpt-oss-20b-1:0"
+      },
+      "ensembles": {
+        "structural": [
+          {
+            "name": "DeepSeek V3",
+            "model": "deepseek.v3-v1:0"
+          },
+          {
+            "name": "DeepSeek R1",
+            "model": "us.deepseek.r1-v1:0"
+          },
+          {
+            "name": "Mistral Large 3",
+            "model": "mistral.mistral-large-3-675b-instruct"
+          }
+        ],
+        "ira": [
+          {
+            "name": "DeepSeek V3",
+            "model": "deepseek.v3-v1:0"
+          },
+          {
+            "name": "Mistral Large 3",
+            "model": "mistral.mistral-large-3-675b-instruct"
+          },
+          {
+            "name": "Qwen3-235B",
+            "model": "qwen.qwen3-235b-a22b-2507-v1:0"
+          }
+        ]
+      }
+    },
+    "openai": {
+      "base_url": "https://api.openai.com/v1",
+      "api_key_env": "OPENAI_API_KEY",
+      "timeout": 120,
+      "models": {
+        "default": "gpt-5.1"
+      }
+    },
+    "anthropic": {
+      "base_url": "https://api.anthropic.com/v1",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "timeout": 120,
+      "models": {
+        "default": "claude-sonnet-4-5"
+      }
+    },
+    "gemini": {
+      "base_url": "https://generativelanguage.googleapis.com/v1beta",
+      "api_key_env": [
+        "GEMINI_API_KEY",
+        "GOOGLE_API_KEY"
+      ],
+      "timeout": 120,
+      "models": {
+        "default": "gemini-2.5-pro"
+      }
+    },
+    "openrouter": {
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "timeout": 120,
+      "reasoning_effort": "minimal",
+      "models": {
+        "default": "deepseek/deepseek-v3.1",
+        "attacker": "moonshotai/kimi-k2-thinking",
+        "verifier": "mistralai/mistral-large"
+      },
+      "headers": {
+        "site_url": null,
+        "app_name": "PReMISE"
+      }
+    }
+  },
+  "aws": {
+    "profile": null,
+    "region": "us-west-2",
+    "s3_bucket": null,
+    "batch_role_arn": null
+  },
+  "runtime": {
+    "output_root": "results",
+    "annotation_output_dir": "results/annotation/verifier",
+    "bedrock_gate": {
+      "enabled": true,
+      "directory": "/tmp/premise-bedrock-gate",
+      "max_slots": 80,
+      "poll_seconds": 0.25,
+      "throttle_shrink_factor": 0.5,
+      "throttle_cooldown_seconds": 60,
+      "model_max_slots": {}
+    }
+  }
+}

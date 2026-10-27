@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/amazon-science/premise-engine/config.schema.json",
+  "title": "PReMISE configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider",
+    "providers",
+    "aws",
+    "runtime"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "provider": {
+      "type": "string",
+      "minLength": 1
+    },
+    "providers": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "$ref": "#/$defs/provider"
+      }
+    },
+    "aws": {
+      "$ref": "#/$defs/aws"
+    },
+    "runtime": {
+      "$ref": "#/$defs/runtime"
+    }
+  },
+  "$defs": {
+    "models": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "ensemble": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "model"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "models"
+      ],
+      "properties": {
+        "base_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "api_key_env": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ]
+        },
+        "timeout": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "reasoning_effort": {
+          "type": "string",
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ]
+        },
+        "models": {
+          "$ref": "#/$defs/models"
+        },
+        "ensembles": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/ensemble"
+          }
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "site_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "app_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "aws": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "region",
+        "s3_bucket",
+        "batch_role_arn"
+      ],
+      "properties": {
+        "profile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "region": {
+          "type": "string",
+          "minLength": 1
+        },
+        "s3_bucket": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "batch_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "output_root",
+        "annotation_output_dir",
+        "bedrock_gate"
+      ],
+      "properties": {
+        "output_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "annotation_output_dir": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bedrock_gate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "directory",
+            "max_slots",
+            "poll_seconds",
+            "throttle_shrink_factor",
+            "throttle_cooldown_seconds",
+            "model_max_slots"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "directory": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_slots": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "poll_seconds": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "throttle_shrink_factor": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            },
+            "throttle_cooldown_seconds": {
+              "type": "number",
+              "minimum": 0
+            },
+            "model_max_slots": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

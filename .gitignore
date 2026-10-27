@@ -1,0 +1,30 @@
+# Build artifact directories
+/build
+/dist
+/private
+/.hatch
+
+# Python
+*.egg-info/
+__pycache__/
+.coverage
+.ruff_cache
+.pytest_cache
+.mypy_cache
+.venv
+.env
+.pypirc
+/htmlcov
+/uv.lock
+config.local.json
+*.swp
+*.swo
+
+# Experiment data and results — written by discover, audit, and repair runs via
+# the --output flag. All generated; nothing here is committed.
+/experiments/
+/results/
+/results_*/
+
+# OS junk
+.DS_Store
